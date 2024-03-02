@@ -63,24 +63,10 @@ function config() {
       }
     );
 
-  if (matches.length == 0) {
-    return {
-      added: /** @type {string | undefined} */ (defaults),
-      additions: [
-        {
-          type: /** @type {const} */ ("replace"),
-          whitespace: false,
-          local: "nasin-nanpa",
-          docs: "docs-Arial Narrow",
-        },
-      ],
-    };
-  } else {
-    return {
-      added: /** @type {string | undefined} */ (defaults),
-      additions: matches,
-    };
-  }
+  return {
+    added: /** @type {string | undefined} */ (defaults),
+    additions: matches,
+  };
 }
 
 const font = /** @type {{
