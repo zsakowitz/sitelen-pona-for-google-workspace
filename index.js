@@ -54,7 +54,7 @@ function config() {
           return false;
         }
 
-        if (x.docs == "") {
+        if (x.docs == "" || x.docs == "docs-") {
           defaults = x.local;
           return false;
         }
@@ -63,24 +63,25 @@ function config() {
       }
     );
 
-  if (matches.length == 0) {
-    return {
-      added: /** @type {string | undefined} */ (defaults),
-      additions: [
-        {
-          type: /** @type {const} */ ("replace"),
-          whitespace: false,
-          local: "nasin-nanpa",
-          docs: "docs-Arial Narrow",
-        },
-      ],
-    };
-  } else {
-    return {
-      added: /** @type {string | undefined} */ (defaults),
-      additions: matches,
-    };
-  }
+  const data =
+    matches.length == 0
+      ? {
+          added: /** @type {string | undefined} */ (defaults),
+          additions: [
+            {
+              type: /** @type {const} */ ("replace"),
+              whitespace: false,
+              local: "nasin-nanpa",
+              docs: "docs-Arial Narrow",
+            },
+          ],
+        }
+      : {
+          added: /** @type {string | undefined} */ (defaults),
+          additions: matches,
+        };
+
+  return data;
 }
 
 const font = /** @type {{
