@@ -267,6 +267,7 @@ function load(
 }
 
 const map = new WeakMap();
+load(window);
 
 setInterval(() => {
   for (const frame of Array.from(frames)) {
